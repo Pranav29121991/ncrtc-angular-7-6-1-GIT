@@ -97,7 +97,7 @@ export class MenuResolver implements Resolve<boolean> {
       {
         id: `browse_global_communities_and_collections`,
         active: false,
-        visible: false,
+        visible: true,
         index: 0,
         model: {
           type: MenuItemType.LINK,
