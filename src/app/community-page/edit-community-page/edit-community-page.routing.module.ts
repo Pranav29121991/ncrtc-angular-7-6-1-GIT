@@ -55,7 +55,7 @@ import { CommunityAccessControlComponent } from './community-access-control/comm
           {
             path: 'access-control',
             component: CommunityAccessControlComponent,
-            data: { title: 'collection.edit.tabs.access-control.title', showBreadcrumbs: true }
+            data: { title: 'community.edit.tabs.access-control.title', showBreadcrumbs: true }
           },
           /*{
             path: 'authorizations',
