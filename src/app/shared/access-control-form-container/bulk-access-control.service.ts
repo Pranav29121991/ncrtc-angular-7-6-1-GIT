@@ -104,8 +104,15 @@ export const convertToBulkAccessControlFileModel = (payload: { state: AccessCont
   if (itemEnabled) {
     finalPayload.item = {
       mode: payload.state.item.accessMode,
-      accessConditions: payload.itemAccess
+      accessConditions: []
     };
+
+    finalPayload.bitstream = {
+      constraints: { uuid: [] },
+      mode: payload.state.item.accessMode,
+      accessConditions: []
+    };
+   // finalPayload.mode = payload.state.item.accessMode;
   }
 
   if (bitstreamEnabled) {
@@ -115,12 +122,13 @@ export const convertToBulkAccessControlFileModel = (payload: { state: AccessCont
       // @ts-ignore
       constraints.uuid = payload.state.bitstream.selectedBitstreams.map((x) => x.id);
     }
-
+    
     finalPayload.bitstream = {
       constraints,
       mode: payload.state.bitstream.accessMode,
       accessConditions: payload.bitstreamAccess
     };
+   // finalPayload.mode = payload.state.bitstream.accessMode;
   }
 
   return finalPayload;
@@ -136,7 +144,8 @@ export interface BulkAccessControlFileModel {
     constraints: { uuid: string[] };
     mode: string;
     accessConditions: AccessCondition[];
-  }
+  },
+ 
 }
 
 interface AccessCondition {
