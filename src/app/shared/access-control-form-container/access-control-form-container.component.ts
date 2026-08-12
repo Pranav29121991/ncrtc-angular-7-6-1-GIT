@@ -15,6 +15,7 @@ import {
 import { BulkAccessConfigDataService } from '../../core/config/bulk-access-config-data.service';
 import { getFirstCompletedRemoteData } from '../../core/shared/operators';
 import { BulkAccessConditionOptions } from '../../core/config/models/bulk-access-condition-options.model';
+import { ConfigObject } from '../../core/config/models/config.model';
 import { AlertType } from '../alert/alert-type';
 import {
   createAccessControlInitialFormState
@@ -67,7 +68,7 @@ export class AccessControlFormContainerComponent<T extends DSpaceObject> impleme
 
   dropdownData$: Observable<BulkAccessConditionOptions> = this.bulkAccessConfigService.findByName('default').pipe(
     getFirstCompletedRemoteData(),
-    map((configRD: RemoteData<BulkAccessConditionOptions>) => configRD.hasSucceeded ? configRD.payload : null),
+    map((configRD: RemoteData<ConfigObject>) => configRD.hasSucceeded ? configRD.payload as BulkAccessConditionOptions : null),
     shareReplay(1)
   );
 
