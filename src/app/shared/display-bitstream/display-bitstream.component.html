@@ -17,7 +17,7 @@
 
           <ng-template ngbNavContent>
 
-            <div class="row mt-2 mb-3">
+            <!-- <div class="row mt-2 mb-3">
               <div class="col-6 ">
                 <a class="btn btn-primary   text-white" (click)="genratesmartview()" title="Generate smart view"> <i class="fa fa-cog  mr-1"></i>View<i
                     *ngIf="lodder" class="fa ml-2 fa-2xs fa-spinner fa-spin"></i></a>
@@ -30,7 +30,7 @@
                 <a class="btn btn-primary  text-white" *ngIf="smartBistream" (click)="donloadSmartPDF()" title=" Download Smart View"><i class="fa fa-download "
                     aria-hidden="true"></i></a>
               </div>
-            </div>
+            </div> -->
             <div style="height: 71vh; overflow: scroll; width: 99%;">
                 <div *ngVar="(originals$ | async)?.payload as originals">
                     <div class="mb-3" *ngFor="let file of originals?.page;let i = index">

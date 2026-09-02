@@ -2,7 +2,8 @@ rest:
   ssl: true
   host: lab.d2t.co
   port: 441
-  nameSpace: /serverbdc
+  nameSpace: /ncrtcserver
+
 
 
 casetype: ["A.APPL","A.B.A.","A.C.(D.B.)","A.C.(S.B.)","Acq. App.","Acq. App.(C)","Acq. App.(V)","Arb. Appeal","B.A.","C Ref","C.A.","C.M.P.","C.O.","C.P.","C.R.","C.Rev.","COM.APPEAL","COMP. APL.","Comp.Ap.DB","COMP.AP.SJ","Comp.Appeal","Cont.(Crl)","Cont.(Cvl)","CONT.APP.","Cop.Lnt","CR. EXE.","Cr. Ref.","Cr.A(DB)","Cr.A(SJ)","Cr.App(341)","Cr.App.(V)","Cr.M.P.","Cr.Misc.","Cr.Rev.","Cr.WJC","CrApp(U/S)","CWJC","D. Ref.","E.P.","FA","G.App.(DB)","G.App.(SJ)","L.A.","LPA","M A C CASE","MA","Mat Ref","Mat.Suit","MJC","Money SUIT","OCrMisc(DB","Or.Cr.Misc","PATENT CAS","PROB.CASE","Req. Case","REQ.APPEAL","S.C.L.P","SA","SCA","SLA","T.A.","T.S.","Tax","TAX APPLI.","Test Case","Test Suit","Tr.Pet.Crl","Tr.Pet.CVL","W.P.(Cr.)","WPC"]

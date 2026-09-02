@@ -56,7 +56,8 @@ export class DSONameService {
       // If object doesn't have dc.title metadata use name property
       //  return dso.firstMetadataValue('dc.title') || dso.name || this.translateService.instant('dso.name.untitled');
       if (dso.firstMetadataValue('casefile.case.typename')) {
-        return dso.firstMetadataValue('casefile.case.typename') + "/" + dso.firstMetadataValue('dc.title') + "/" + dso.firstMetadataValue('casefile.case.registrationyear')
+        const title = dso.firstMetadataValue('dc.title') || this.translateService.instant('dso.name.untitled');
+        return dso.firstMetadataValue('casefile.case.typename') + "/" + title + "/" + dso.firstMetadataValue('casefile.case.registrationyear')
       } else {
         return dso.firstMetadataValue('dc.title') || dso.name || dso.firstMetadataValue('causelist.date') || this.translateService.instant('dso.name.untitled');
       }
@@ -115,7 +116,8 @@ export class DSONameService {
     }
     else {
       if (dso.firstMetadataValue('casefile.case.typename')) {
-        return dso.firstMetadataValue('casefile.case.typename') + "/" + dso.firstMetadataValue('dc.title') + "/" + dso.firstMetadataValue('casefile.case.registrationyear')
+        const title = this.firstMetadataValue(object, dso, 'dc.title') || this.translateService.instant('dso.name.untitled');
+        return dso.firstMetadataValue('casefile.case.typename') + "/" + title + "/" + dso.firstMetadataValue('casefile.case.registrationyear')
       } else {
         return this.firstMetadataValue(object, dso, 'dc.title') || dso.name || this.translateService.instant('dso.name.untitled');
       }

@@ -66,15 +66,12 @@
             <div class="col-lg-6 p-0">
                 <label class="font-weight-bold ml-1"> Select Action Type</label>
                 <select class="form-control col" id="actiontype" (change)="selectedaction($event)" name="actiontype" placeholder="">
-                    <option value="">Select Action type</option>
-                    <option value="0">Login</option>
-                    <option value="1"> View Document</option>
-                    <option value="2">View Merge Document</option>
-                    <option value="3">Download</option>
-                    <option value="4">Edit</option>
-                    <option value="5">Delete</option>
-                    <option value="6">Merge PDF</option>
-                    
+                    <option value="">{{'progress-report.action.select' | translate}}</option>
+                    <option value="0">{{'progress-report.action.login' | translate}}</option>
+                    <!-- <option value="1"> {{'progress-report.action.viewDocument' | translate}}</option>
+                    <option value="3">{{'progress-report.action.download' | translate}}</option> -->
+                    <option value="4">{{'progress-report.action.edit' | translate}}</option>
+                    <option value="5">{{'progress-report.action.delete' | translate}}</option>                    
                 </select>
             </div>
             <div class="col-lg-1 mt-4"></div>

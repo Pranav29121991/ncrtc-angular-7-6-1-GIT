@@ -5515,8 +5515,10 @@
 "browse.metadata.maintainedby.breadcrumbs": "Maintained By",
 "search.filters.filter.maintainedby.head": "Maintained By",
 "search.filters.filter.maintainedby.label": "Search Maintained By",
+"search.filters.filter.maintainedby.placeholder": "Maintained By",
 "browse.comcol.by.maintainedby": "Maintained By",
 "search.filters.filter.maintainedby.text": "Maintained By",
+"search.filters.applied.f.maintainedby": "Maintained By",
 
 "menu.section.browse_global_by_department": "Department",
 "browse.metadata.department": "Department",
@@ -5525,6 +5527,8 @@
 "browse.comcol.by.department": "Department",
 "search.filters.filter.department.label": "Search Department",
 "search.filters.filter.department.text": "Department",
+"search.filters.filter.department.placeholder": "Department",
+"search.filters.applied.f.department": "Department",
 
 "menu.section.browse_global_by_keywords": "Keywords",
 "browse.metadata.keywords": "Keywords",
@@ -5533,6 +5537,8 @@
 "browse.comcol.by.keywords": "Keywords",
 "search.filters.filter.keywords.text": "Keywords",
 "search.filters.filter.keywords.label": "Search Keywords",
+"search.filters.filter.keywords.placeholder": "Keywords",
+"search.filters.applied.f.keywords": "Keywords",
 
 "search.filters.filter.dateIssued.text": "Year",
 "login.form.getOtP": " OTP",
@@ -5542,4 +5548,13 @@
 "admin.access-control.epeople.form.mobileno": "Mobile No.",
 "error.validation.mobileMinLength": "Mobile number must be at least 10 digits",
 "error.validation.mobileMaxLength": "Mobile number cannot be more than 10 digits",
+"casefile.page.edit": "Edit",
+"menu.section.icon.auditreport": "Audit Report",
+"menu.section.icon.productivityreport": "Productivity Report",
+"progress-report.action.select": "Select Action type",
+"progress-report.action.login": "Login",
+"progress-report.action.viewDocument": "View Document",
+"progress-report.action.download": "Download",
+"progress-report.action.edit": "Edit",
+"progress-report.action.delete": "Delete",
 }

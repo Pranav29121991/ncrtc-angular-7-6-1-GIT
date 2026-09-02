@@ -1,5 +1,5 @@
 <div class="row mb-4" mb-10 *ngIf="itemTab.allMetadata(['casefile.*.*','casefile.*']).length > 0">
-  <div class="col-lg-6 text-center"><b>{{itemTab.firstMetadataValue('casefile.case.typename')}}/{{itemTab.firstMetadataValue('dc.title')}}/{{itemTab.firstMetadataValue('casefile.case.registrationyear')}}</b></div>
+  <div class="col-lg-6 text-center"><b>{{itemTab.firstMetadataValue('casefile.case.typename')}}/{{itemTab.firstMetadataValue('dc.title') || ('dso.name.untitled' | translate)}}/{{itemTab.firstMetadataValue('casefile.case.registrationyear')}}</b></div>
   <div class="col-lg-6"><span *ngIf="caseStatus"class="badge " style="    font-size: 94% !important;" [ngClass]="classbager(caseStatus)">{{ caseStatus | translate }}</span>
     <!-- <ds-dso-page-edit-button [pageRoute]="pageRoute" [dso]="itemTab" [tooltipMsg]="'item.page.edit'"></ds-dso-page-edit-button> -->
 
@@ -23,12 +23,12 @@
           </ng-template>
           <ng-template ngbPanelContent>
       
-            <div class="mt-2" *ngIf="itemTab.firstMetadataValue('dc.title') ">
+            <div class="mt-2">
               <div>
                 <h6 class="font-weight-bold">File number</h6>
               </div>
               <span class="text-uppercase " data-toggle="tooltip" data-placement="top"
-                title="{{itemTab.firstMetadataValue('dc.title')}}"> {{itemTab.firstMetadataValue('dc.title')}}</span>
+                title="{{itemTab.firstMetadataValue('dc.title') || ('dso.name.untitled' | translate)}}"> {{itemTab.firstMetadataValue('dc.title') || ('dso.name.untitled' | translate)}}</span>
       
       
             </div>
@@ -151,7 +151,7 @@
                 <h5 class="simple-view-element-header">IA Case(s)</h5>
                 <div class="simple-view-element-body" *ngFor="let iacase of IACase">
                   <a target="_blank" class="ml-3 " href="handle/{{iacase.handle}}">
-                    {{iacase.firstMetadataValue('casefile.case.typename')}}/{{iacase.firstMetadataValue('dc.title')}}/{{iacase.firstMetadataValue('casefile.case.registrationyear')}}
+                    {{iacase.firstMetadataValue('casefile.case.typename')}}/{{iacase.firstMetadataValue('dc.title') || ('dso.name.untitled' | translate)}}/{{iacase.firstMetadataValue('casefile.case.registrationyear')}}
                   </a>
                 </div>
       

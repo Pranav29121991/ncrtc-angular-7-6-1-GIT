@@ -22,7 +22,7 @@
             <div class="mt-2" *ngIf="dso.firstMetadataValue('casefile.case.typename')">
                 <ds-truncatable-part [id]="dso.id" type="h4">
                     <h4 class=" text-primary card-title"
-                        [innerHTML]="firstMetadataValue('casefile.case.typename')+'/'+firstMetadataValue('dc.title')+'/'+firstMetadataValue('casefile.case.registrationyear')">
+                        [innerHTML]="firstMetadataValue('casefile.case.typename')+'/'+(firstMetadataValue('dc.title') || ('dso.name.untitled' | translate))+'/'+firstMetadataValue('casefile.case.registrationyear')">
                         <!-- {{firstMetadataValue('casefile.case.typename')| translate}}/{{firstMetadataValue('dc.title') | translate}}{{firstMetadataValue('casefile.case.registrationyear')}} -->
                     </h4>
                 </ds-truncatable-part>

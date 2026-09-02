@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit, ChangeDetectorRef, Output, EventEmitter, ElementRef, ViewChild, Renderer2, HostListener } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ChangeDetectorRef, Output, EventEmitter, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { catchError, take } from 'rxjs';
 import { DocumenttypeTreeService } from 'src/app/core/data/documenttypetree.service';
 import { RemoteData } from 'src/app/core/data/remote-data';
@@ -77,15 +77,18 @@ export class FabricCanvasComponent implements AfterViewInit {
     // context.putImageData(imageData, 0, 0);
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-      this.setCanvasWidth();
-  }
-
   setCanvasWidth() {
       const canvas = this.canvasRef.nativeElement;
       const parentWidth = canvas.parentElement.clientWidth;
+      if (!parentWidth || canvas.width === parentWidth) {
+        return;
+      }
+      // Setting the canvas width/height attribute clears the bitmap,
+      // so preserve the current content and restore it after resizing.
+      const ctx = canvas.getContext('2d')!;
+      const snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
       this.renderer.setAttribute(canvas, 'width', parentWidth.toString());
+      ctx.putImageData(snapshot, 0, 0);
   }
   
   loadCanvasData() {

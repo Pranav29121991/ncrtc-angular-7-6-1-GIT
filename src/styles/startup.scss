@@ -6,3 +6,30 @@
   align-items: center;
   flex-direction: column;
 }
+
+/* Modal styles - must be global because NgbModal renders content
+   outside the component's view, so Angular's scoped styles don't apply. */
+.btn-group ul {
+  display: flex;
+  list-style: none;
+}
+.btn-group li {
+  background-color: #0070c0;
+  padding: 10px 8px;
+  border-radius: 10px;
+  width: 114px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+}
+.btn-group li.red-bg {
+  background-color: #c00000;
+}
+.btn-group li a {
+  color: #fff;
+}
+.button {
+  cursor: pointer;
+}

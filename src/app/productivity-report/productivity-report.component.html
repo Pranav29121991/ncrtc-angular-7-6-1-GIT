@@ -72,7 +72,7 @@
                         <tr *ngFor="let item of (items$ | async)?.page; let i=index;">
                             <td>{{(pageInfoState$ | async)?.elementsPerPage * ((pageInfoState$ | async)?.currentPage-1)+i+1}}</td>
                             <!-- <td>{{item.firstMetadataValue('casefile.Bundle.name')}} </td> -->
-                            <td><a style="cursor: pointer;" (click)="opennewtab('/entities/casefile/',item.id)" target="_blank">{{item.firstMetadataValue('dc.title')}}</a>
+                            <td><a style="cursor: pointer;" (click)="opennewtab('/entities/casefile/',item.id)" target="_blank">{{item.firstMetadataValue('dc.title') || ('dso.name.untitled' | translate)}}</a>
                             </td>
                             <td><span *ngIf="item.pagecount !== null && item.pagecount !== undefined">{{item.pagecount}}</span></td>
                             <td>{{item.firstMetadataValue('dc.date.accessioned') | date:'dd/MM/yyyy'}}</td>

@@ -50,6 +50,7 @@ export class CanvasManagerComponent implements OnInit,AfterViewInit {
           ).subscribe((response: RemoteData<DocumentTypeTree>) => {
             if (response.isSuccess) {
               this.canvasIds.push('canvas' + new Date().getTime());
+              this.cdref.detectChanges();
             }           
           });
           return error;
@@ -83,8 +84,16 @@ export class CanvasManagerComponent implements OnInit,AfterViewInit {
               // }
             }
           }
+          // If no canvasIds were found in the data (e.g. empty array "[]"
+          // or objects without canvasId), create a default canvas so the
+          // sketchpad is still visible.
+          if (this.canvasIds.length === 0) {
+            this.canvasIds.push('canvas' + new Date().getTime());
+            this.cdref.detectChanges();
+          }
         } else {
           this.canvasIds.push('canvas' + new Date().getTime());
+          this.cdref.detectChanges();
         }
       });
     } else {
@@ -108,6 +117,11 @@ export class CanvasManagerComponent implements OnInit,AfterViewInit {
           }
         }
   
+      }
+      // If the data array had items but none contained a canvasId,
+      // create a default canvas so the sketchpad is still visible.
+      if (this.canvasIds.length === 0) {
+        this.canvasIds.push('canvas' + new Date().getTime());
       }
       setTimeout(() => {
         this.canAddCanvas = true; // Re-enable adding new canvases
