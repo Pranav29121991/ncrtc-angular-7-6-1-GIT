@@ -179,8 +179,7 @@ import { GstReportComponent } from './gst-report/gst-report.component';
           {
             path: 'duplicateitemreport',
             loadChildren: () => import('./duplicate-item-report/duplicate-item-report.module').then(m => m.DuplicateItemReportModule),
-            resolve: { breadcrumb: I18nBreadcrumbResolver },
-            data: { title: 'duplicateitemreport', breadcrumbKey: 'duplicateitemreport' },
+            data: { title: 'duplicateitemreport' },
             canActivate: [AuthenticatedGuard, SiteAdministratorGuard, EndUserAgreementCurrentUserGuard]
           },
           {

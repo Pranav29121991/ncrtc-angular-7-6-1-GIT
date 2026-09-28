@@ -5560,6 +5560,7 @@
 "casefile.page.edit": "Edit",
 "menu.section.icon.auditreport": "Audit Report",
 "menu.section.icon.productivityreport": "Productivity Report",
+"menu.section.icon.duplicateitemreport": "Duplicate Item Report",
 "progress-report.action.select": "Select Action type",
 "progress-report.action.login": "Login",
 "progress-report.action.viewDocument": "View Document",
