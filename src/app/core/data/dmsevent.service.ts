@@ -36,8 +36,11 @@ import { FindListOptions } from './find-list-options.model';
 @dataService(DMSEVENT)
 export class DmseventSerive extends IdentifiableDataService<DmsEvent> implements SearchData<DmsEvent> { 
     protected linkPath = 'dspaceevents';
+    protected itemEventsLinkPath = 'events';
     protected getitemProgressreport = 'getCurrentDateEvent';
+    protected getitemEventsByItem = 'getEventByItemId';
     private searchData: SearchData<DmsEvent>;
+    private itemEventsSearchData: SearchData<DmsEvent>;
     constructor(
         protected requestService: RequestService,
         protected rdbService: RemoteDataBuildService,
@@ -49,6 +52,7 @@ export class DmseventSerive extends IdentifiableDataService<DmsEvent> implements
     ) {
         super("dspaceevents", requestService, rdbService, objectCache, halService);
         this.searchData = new SearchDataImpl(this.linkPath, requestService, rdbService, objectCache, halService, this.responseMsToLive);
+        this.itemEventsSearchData = new SearchDataImpl(this.itemEventsLinkPath, requestService, rdbService, objectCache, halService, this.responseMsToLive);
     }
 
     getEndpoint(): Observable<string> {
@@ -58,37 +62,45 @@ export class DmseventSerive extends IdentifiableDataService<DmsEvent> implements
         return this.searchData.searchBy(searchMethod, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow);
     }
     public _getprogressReportByDate(actiontype:string,userID:string,fromdate: string, todate: string, options: FindListOptions = {}, useCachedVersionIfAvailable = false, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<DmsEvent>[]): Observable<RemoteData<PaginatedList<DmsEvent>>> {
-        
+
         if (userID === "") {
             if (actiontype === "") {
                 options = Object.assign({}, options, {
-                    searchParams: [new RequestParam('stdateStr', fromdate), new RequestParam('enddateStr', todate)]
-                });  
+                    searchParams: [new RequestParam('stdate', fromdate), new RequestParam('enddate', todate)]
+                });
             } else {
                 options = Object.assign({}, options, {
-                    searchParams: [new RequestParam('stdateStr', fromdate), new RequestParam('enddateStr', todate), new RequestParam('action', actiontype) ]
-                }); 
+                    searchParams: [new RequestParam('stdate', fromdate), new RequestParam('enddate', todate), new RequestParam('action', actiontype) ]
+                });
             }
-             
+
         } else {
-           
-           
+
+
             if (actiontype === "") {
                 options = Object.assign({}, options, {
-                    searchParams: [new RequestParam('stdateStr', fromdate), new RequestParam('enddateStr', todate), new RequestParam('userID', userID)]
+                    searchParams: [new RequestParam('stdate', fromdate), new RequestParam('enddate', todate), new RequestParam('userID', userID)]
                 });
             } else {
                 options = Object.assign({}, options, {
-                    searchParams: [new RequestParam('stdateStr', fromdate), new RequestParam('enddateStr', todate), , new RequestParam('userID', userID) ,new RequestParam('action', actiontype)]
+                    searchParams: [new RequestParam('stdate', fromdate), new RequestParam('enddate', todate), new RequestParam('userID', userID) ,new RequestParam('action', actiontype)]
                 });
             }
-           
-           
-            
+
+
+
         }
-       
-        return this.searchBy(this.getitemProgressreport, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+
+        return this.itemEventsSearchData.searchBy(this.getitemProgressreport, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
             filter((collections: RemoteData<PaginatedList<DmsEvent>>) => !collections.isResponsePending));
+    }
+
+    public getEventsByItemId(itemId: string, options: FindListOptions = {}, useCachedVersionIfAvailable = false, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<DmsEvent>[]): Observable<RemoteData<PaginatedList<DmsEvent>>> {
+        options = Object.assign({}, options, {
+            searchParams: [new RequestParam('item', itemId)]
+        });
+        return this.itemEventsSearchData.searchBy(this.getitemEventsByItem, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+            filter((events: RemoteData<PaginatedList<DmsEvent>>) => !events.isResponsePending));
     }
 
 }

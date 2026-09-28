@@ -1,11 +1,11 @@
 
 <div class="container">
-    <div class="row  border bg-light  p-3">
+    <div class="row border bg-light p-3 mt-4">
             <!-- <div class="col-lg-2"><b class="mt-1">Select date range</b> </div> -->
-            <div class="col-lg-6  groupbody">
-                <label class="font-weight-bold ml-3"> Select Date Range</label>
-                <div class="input-group">
-                        <div class="col-lg-6 p-0">
+            <div class="col-lg-6 groupbody mb-3 mb-lg-0">
+                <label class="font-weight-bold ml-1"> Select Date Range</label>
+                <div class="input-group flex-wrap">
+                        <div class="col-lg-6 p-0 pr-lg-2 mb-2 mb-lg-0">
                             <div class="dp-hidden position-absolute" style="width: 65%;">
                                 <div class="input-group">
                                     <input name="datepicker" class="form-control" ngbDatepicker #datepicker="ngbDatepicker"
@@ -27,7 +27,7 @@
                                     type="button"><i class="fas fa-calendar"></i></button>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 p-0 pl-lg-2">
                             <div class="input-group">
                                 <input #dpToDate class="form-control" placeholder="DD/MM/YYYY" name="dpToDate"
                                     [value]="formatter.format(toDate)" (input)="toDate = validateInput(toDate, dpToDate.value)" />
@@ -41,10 +41,10 @@
                 </div>
             
             </div>
-            <div class="col-lg-6 p-0">
+            <div class="col-lg-6 pl-lg-3">
                 <label class="font-weight-bold ml-1" > Select User</label>
                 <input  placeholder="Enter user name" id="documenttypeSelect" [(ngModel)]='treename' type="text"
-                    (keyup)="getepople($event)" class="form-control col" />
+                    (keyup)="getepople($event)" class="form-control" />
                 <!-- <span *ngIf="loder"><i class=" ml-2 fa fa-spinner fa-spin fa-lg"></i></span> -->
                 <ul id="search-results" class="list-group" *ngIf="showdocument"
                     style="cursor: pointer; height: 67vh;overflow-x: scroll;position: fixed;">
@@ -62,21 +62,22 @@
                 </ul>
             </div>
             </div>
-<div class="row  border bg-light  p-3">
-            <div class="col-lg-6 p-0">
+<div class="row border bg-light p-3 mt-4">
+            <div class="col-lg-6">
                 <label class="font-weight-bold ml-1"> Select Action Type</label>
-                <select class="form-control col" id="actiontype" (change)="selectedaction($event)" name="actiontype" placeholder="">
+                <select class="form-control" id="actiontype" (change)="selectedaction($event)" name="actiontype" placeholder="">
                     <option value="">{{'progress-report.action.select' | translate}}</option>
                     <option value="0">{{'progress-report.action.login' | translate}}</option>
-                    <!-- <option value="1"> {{'progress-report.action.viewDocument' | translate}}</option>
-                    <option value="3">{{'progress-report.action.download' | translate}}</option> -->
-                    <option value="4">{{'progress-report.action.edit' | translate}}</option>
-                    <option value="5">{{'progress-report.action.delete' | translate}}</option>                    
+                    <option value="1">{{'progress-report.action.view' | translate}}</option>
+                    <option value="2">{{'progress-report.action.search' | translate}}</option>
+                    <option value="3">{{'progress-report.action.download' | translate}}</option>
+                    <option value="4">{{'progress-report.action.create' | translate}}</option>
+                    <option value="5">{{'progress-report.action.edit' | translate}}</option>
+                    <option value="6">{{'progress-report.action.delete' | translate}}</option>
                 </select>
             </div>
-            <div class="col-lg-1 mt-4"></div>
             <div class="col-lg-3 mt-4"><button class="btn btn-primary" (click)="getresult()" style="    width: 150px;">View</button></div>
-            <div class="col-lg-2 mt-4" ><button class="btn btn-primary"  (click)="downloadEXsl()" style="display: none;   width: 150px;">Download</button></div>
+            <div class="col-lg-3 mt-4" ><button class="btn btn-primary"  (click)="downloadEXsl()" style="display: none;   width: 150px;">Download</button></div>
         
     </div>
     <div class="row mt-4">
@@ -108,7 +109,7 @@
                             </td>
                             <td>{{item1.title}}</td>
                             <td>{{item1.dspaceObject}}</td>
-                            <td><span *ngIf="item1.ePersonRest">{{item1.ePersonRest.name}}</span> </td>
+                            <td><span *ngIf="!item1.ePersonRest">Anonymous</span><span *ngIf="item1.ePersonRest">{{item1.ePersonRest.name}}</span> </td>
                             <td>{{item1.action}}</td>
                             <td>{{item1.actionDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                            </tr>

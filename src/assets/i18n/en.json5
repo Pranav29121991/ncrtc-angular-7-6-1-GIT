@@ -2505,6 +2505,13 @@
 
   "item.page.filesection.license.bundle": "License bundle",
 
+  "item.events.title": "Item Events",
+  "item.events.srno": "Sr.No",
+  "item.events.user": "User",
+  "item.events.action": "Action",
+  "item.events.actionDate": "Action Date",
+  "item.events.empty": "No events found for this item.",
+
   "item.page.return": "Back",
 
   "item.page.version.create": "Create new version",
@@ -2883,8 +2890,10 @@
 
   "menu.section.browse_community_by_title": "By Title",
 "auditreport.breadcrumbs": "Audit Report",
+"duplicateitemreport.breadcrumbs": "Duplicate Item Report",
   "menu.section.browse_global": "All of DSpace",
   "menu.section.auditreport": "Audit Report",
+  "menu.section.duplicateitemreport": "Duplicate Item Report",
   "menu.section.browse_global_by_author": "By Author",
     "menu.section.browse_global_by_casestatus": "By Case Status",
      "menu.section.browse_global_by_casetype": "By Case Type",
@@ -5554,7 +5563,10 @@
 "progress-report.action.select": "Select Action type",
 "progress-report.action.login": "Login",
 "progress-report.action.viewDocument": "View Document",
+"progress-report.action.view": "View",
+"progress-report.action.search": "Search",
 "progress-report.action.download": "Download",
+"progress-report.action.create": "Create",
 "progress-report.action.edit": "Edit",
 "progress-report.action.delete": "Delete",
 }

@@ -65,36 +65,41 @@ a {
 }
 
 .leftArrow {
-  position: fixed;
-  height: 20vh;
+  position: absolute;
+  height: 120px;
   z-index: 5;
-  top: 40%;
-  margin-left: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 .rightArrow {
-  position: fixed;
-  height: 20vh;
+  position: absolute;
+  height: 120px;
   z-index: 5;
-  top: 70%;
-  margin-left: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 .leftFull {
-  position: fixed;
-  height: 50vh;
+  position: absolute;
+  height: 40%;
   z-index: 5;
   width: 15px;
-  top: 40%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
 }
 
 .rightFull {
-  right: 0;
-  position: fixed;
-  height: 50vh;
+  position: absolute;
+  height: 40%;
   z-index: 5;
   width: 15px;
-  top: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 .example-container {

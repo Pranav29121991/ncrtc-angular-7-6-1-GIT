@@ -1,6 +1,6 @@
 <div class="container-fluid  m-0 p-0" style="width:130%">
   <div class="row m-0 p-0">
-    <div [ngClass]="{'col-2': !fullleft && !fullright && leftOpen, 'col-12' : fullright }" class="  p-0"
+    <div [ngClass]="{'col-2': !fullleft && !fullright && leftOpen, 'col-12' : fullright }" class="  p-0 position-relative"
     *ngIf="(!fullright  && !fullleft && leftOpen) || fullright" [@slideInOut]>
       <img *ngIf="fullright" (click)="fullrightC()" class="rightFull cursor" src="assets/dsquareIcon/leftFull.png"
         alt="" />
@@ -31,11 +31,11 @@
                     aria-hidden="true"></i></a>
               </div>
             </div> -->
-            <div style="height: 71vh; overflow: scroll; width: 99%;">
+            <div style="height: 78vh; overflow: auto; width: 99%;">
                 <div *ngVar="(originals$ | async)?.payload as originals">
                     <div class="mb-3" *ngFor="let file of originals?.page;let i = index">
                       <div class="col-12 d-flex" style="justify-content: space-between;">
-                        <a style="cursor: pointer;" (click)="showpdf(file,dsoNameService.getName(file));" target="_blank">
+                        <a style="cursor: pointer; word-break: break-all;" (click)="showpdf(file,dsoNameService.getName(file));" target="_blank">
                           <span class=" slash text-black">{{i+1}}. {{ geFileName(dsoNameService.getName(file)) }}</span>
                         </a>
                         <a style="cursor: pointer;" title="Parellel View" (click)="sencodview(file,dsoNameService.getName(file))">
@@ -74,7 +74,7 @@
           #resizableDiv>
           <img *ngIf="fullleft" (click)="fullleftC()" class="leftFull cursor" src="assets/dsquareIcon/rightFull.png"
             alt="" />
-          <div class="body">
+          <div class="body mb-0">
             <ng-container>
 
               <nav ngbNav #nav2="ngbNav" [(activeId)]="active2" class="nav-tabs">

@@ -1,7 +1,7 @@
 rest:
   ssl: true
   host: lab.d2t.co
-  port: 441
+  port: 443
   nameSpace: /ncrtcserver
 
 

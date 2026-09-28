@@ -201,6 +201,20 @@ export abstract class BaseItemDataService extends IdentifiableDataService<Item> 
       filter((collections: RemoteData<PaginatedList<Item>>) => !collections.isResponsePending));
   }
   /**
+   * Get the items sharing a duplicate metadata value
+   * Calls api/core/items/search/findDuplicateMetadataDetails
+   * @param metadataField   The metadata field checked for duplicates (e.g. dc.title)
+   * @param value           The duplicate metadata value
+   * @param options         Pagination options
+   */
+  public findDuplicateMetadataDetails(metadataField: string, value: string, options: FindListOptions = {}, useCachedVersionIfAvailable = false, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<Item>[]): Observable<RemoteData<PaginatedList<Item>>> {
+    options = Object.assign({}, options, {
+      searchParams: [new RequestParam('metadata', metadataField), new RequestParam('value', value)]
+    });
+    return this.searchBy('findDuplicateMetadataDetails', options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+      filter((items: RemoteData<PaginatedList<Item>>) => !items.isResponsePending));
+  }
+  /**
    * Get an item's bundles using paginated search options
    * @param itemId          The item's ID
    * @param searchOptions   The search options to use

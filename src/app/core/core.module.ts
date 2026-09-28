@@ -187,10 +187,13 @@ import { DocumenttypeService } from './data/documenttype.service';
 import { DocumentType } from './shared/documenttype.model';
 import { DocumenttypeTreeService } from './data/documenttypetree.service';
 import { DmsEvent } from './shared/dmsevent.model';
+import { DSpaceEvent } from './shared/event.model';
 import { CauseListValueResponseParsingService } from './data/cause-list-value-response-parsing.service';
 import { PDFANNOTATION } from './shared/pdf-annotation.model';
 import { ReportService } from './data/report.service';
 import { Workflowprocesse } from './shared/workflowprocesse-format.model';
+import { DuplicateMetadata } from './shared/duplicate-metadata.model';
+import { DuplicateMetadataDataService } from './data/duplicate-metadata-data.service';
 /**
  * When not in production, endpoint responses can be mocked for testing purposes
  * If there is no mock version available for the endpoint, the actual REST response will be used just like in production mode
@@ -317,7 +320,8 @@ const PROVIDERS = [
   DocumenttypeTreeService,
   CauseListValueResponseParsingService,
   DmseventSerive,
-  ReportService
+  ReportService,
+  DuplicateMetadataDataService
 ];
 
 /**
@@ -397,8 +401,10 @@ export const models =
     DocumentType,
     DocumentTypeTree,
     DmsEvent,
+    DSpaceEvent,
     PDFANNOTATION,
-    Workflowprocesse
+    Workflowprocesse,
+    DuplicateMetadata
   ];
 
 @NgModule({

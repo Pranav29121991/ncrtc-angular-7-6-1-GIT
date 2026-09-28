@@ -581,6 +581,18 @@ export class MenuResolver implements Resolve<boolean> {
           icon: 'chart-pie',
           index: 14
         },
+        {
+          id: 'duplicateitemreport',
+          active: true,
+          visible: authorized,
+          model: {
+            type: MenuItemType.LINK,
+            text: 'menu.section.duplicateitemreport',
+            link: 'duplicateitemreport'
+          } as LinkMenuItemModel,
+          icon: 'copy',
+          index: 15
+        },
         // {
         //   id: 'gstreport',
         //   active: true,

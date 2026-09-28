@@ -60,6 +60,7 @@ import { ThemedItemAlertsComponent } from './alerts/themed-item-alerts.component
 import {
   ThemedFullFileSectionComponent
 } from './full/field-components/file-section/themed-full-file-section.component';
+import { ItemEventsComponent } from './simple/item-events/item-events.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -103,6 +104,7 @@ const DECLARATIONS = [
   ItemAlertsComponent,
   ThemedItemAlertsComponent,
   BitstreamRequestACopyPageComponent,
+  ItemEventsComponent,
 ];
 
 @NgModule({

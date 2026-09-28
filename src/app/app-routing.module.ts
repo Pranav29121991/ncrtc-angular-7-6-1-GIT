@@ -177,6 +177,13 @@ import { GstReportComponent } from './gst-report/gst-report.component';
             data: { title: 'admin.workflow.bitstreamReport', breadcrumbKey: 'admin.workflow.bitstreamReport' }
           },
           {
+            path: 'duplicateitemreport',
+            loadChildren: () => import('./duplicate-item-report/duplicate-item-report.module').then(m => m.DuplicateItemReportModule),
+            resolve: { breadcrumb: I18nBreadcrumbResolver },
+            data: { title: 'duplicateitemreport', breadcrumbKey: 'duplicateitemreport' },
+            canActivate: [AuthenticatedGuard, SiteAdministratorGuard, EndUserAgreementCurrentUserGuard]
+          },
+          {
             path: 'search',
             loadChildren: () => import('./search-page/search-page-routing.module')
               .then((m) => m.SearchPageRoutingModule),
@@ -278,7 +285,7 @@ import { GstReportComponent } from './gst-report/gst-report.component';
           { path: '**', pathMatch: 'full', component: ThemedPageNotFoundComponent },
         ]
       }
-     
+
     ], {
       // enableTracing: true,
       useHash: false,
