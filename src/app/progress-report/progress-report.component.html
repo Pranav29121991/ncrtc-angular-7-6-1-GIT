@@ -41,23 +41,23 @@
                 </div>
             
             </div>
-            <div class="col-lg-6 pl-lg-3">
+            <div class="col-lg-6 pl-lg-3 position-relative">
                 <label class="font-weight-bold ml-1" > Select User</label>
                 <input  placeholder="Enter user name" id="documenttypeSelect" [(ngModel)]='treename' type="text"
                     (keyup)="getepople($event)" class="form-control" />
                 <!-- <span *ngIf="loder"><i class=" ml-2 fa fa-spinner fa-spin fa-lg"></i></span> -->
                 <ul id="search-results" class="list-group" *ngIf="showdocument"
-                    style="cursor: pointer; height: 67vh;overflow-x: scroll;position: fixed;">
+                    style="cursor: pointer; position: absolute; top: 100%; left: 15px; right: 15px; z-index: 1050; max-height: 60vh; overflow-y: auto;">
                 
                     <li *ngFor="let user of states" class="list-group-item">
                 
                         <span (click)="selecteduser(user)">{{user.firstMetadataValue('eperson.firstname')+ ' '+user.firstMetadataValue('eperson.lastname') }} ({{user.email}})</span>
                     </li>
-                    <li *ngIf="states.length==0 && !loderepople">
+                    <li *ngIf="states.length==0 && !loderepople" class="list-group-item">
                         <strong>No use(s) Found </strong>
                     </li>
-                    <li *ngIf="states.length==0 && loderepople">
-                        <ds-loading></ds-loading>
+                    <li *ngIf="states.length==0 && loderepople" class="list-group-item text-center">
+                        <i class="fas fa-spinner fa-spin mr-2"></i> Loading...
                     </li>
                 </ul>
             </div>
